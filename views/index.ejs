@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message board</title>
+</head>
+<body>
+  <h1>Message board</h1>
+  <ul>
+    <% messages.forEach((message) => { %>
+      <li>
+        <p><%= message.text %></p>
+        <p><%= message.user %></p>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
