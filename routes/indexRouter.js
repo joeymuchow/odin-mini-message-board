@@ -21,5 +21,13 @@ indexRouter.post("/new", (req, res) => {
   messages.push({ text: req.body.message, user: req.body.name, added: new Date() });
   res.redirect("/");
 });
+indexRouter.get("/details/:id", (req, res) => {
+  const message = messages[req.params.id] || "none";
+  if (message !== "none") {
+    res.render("details", { text: message.text, user: message.user, date: message.added });
+  } else {
+    res.redirect("/");
+  }
+});
 
 export default indexRouter;
