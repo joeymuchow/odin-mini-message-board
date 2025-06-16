@@ -1,16 +1,15 @@
 import express from 'express';
 import path from 'node:path';
 import indexRouter from './routes/indexRouter.js';
-import newMessageRouter from './routes/newMessageRouter.js';
 
 const app = express();
 const __dirname = import.meta.dirname;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
-app.use("/new", newMessageRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
